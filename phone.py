@@ -41,3 +41,24 @@ channee_iphone.unlock("password123")
 channee_iphone.call(562888888)
 
 channee_iphone.open_app("FaceBook")
+
+# class Android pass in Phone taking everything from the Phone class and use it in the Android class
+class Android(Phone):
+    def __init__(self, phone_number):
+        # super goes up and grabs the phone number attribute from the first class Phone
+        super().__init__(phone_number)
+        self.keyboard = "Default"
+    # after class is defined here say Android.origin
+    def __str__(self):
+        return "This phone is owned by {}".format(self.number)
+        
+    def set_keyboard(self, new_keyboard):
+        self.keyboard = new_keyboard
+
+Android.ORIGIN = Android("")
+hanzo_phone = Android(562888888)
+hanzo_phone.set_keyboard("Dvorak")
+hanzo_phone.call(818999991)
+hanzo_phone.open_app("Google Play Store")
+
+print(hanzo_phone)
